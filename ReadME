@@ -1,0 +1,50 @@
+----------------------------------------------------
+RW ModMax
+----------------------------------------------------
+This package includes the implementation of the RW ModMax algorithm for features extraction on graphs.
+
+ - RW_ModMax.m : compute the top eigenvectors of the random walk-based modularity matrix for use as features.
+ - Zx.m : estimates the product of the fundamental bag-of-paths matrix with a column vector. Used by the RW_ModMax function.
+ - example_run.m : example of the use of RW ModMax on a labelling problem on the BlogCatalog dataset.
+
+The example run relies on the SocDim framework for semi-supervised classification on graphs developped by Lei Tang and Huan Liu.
+The original SocDim framework is available at http://leitang.net/social_dimension.html
+We include hereafter the description of the SocDim framework by Lei Tang.
+
+Robin Devooght (feel free to contact me at rdevoogh@ulb.ac.be for more information)
+
+------------------------------------------------------
+SocDim Framework
+------------------------------------------------------
+This package includes the implementation of SocialDimension approach to classification with network data.
+
+Related Reference:
+@inproceedings{1557109,
+ author = {Tang, Lei and Liu, Huan},
+ title = {Relational learning via latent social dimensions},
+ booktitle = {KDD '09: Proceedings of the 15th ACM SIGKDD international conference on Knowledge discovery and data mining},
+ year = {2009},
+ isbn = {978-1-60558-495-9},
+ pages = {817--826},
+ location = {Paris, France},
+ doi = {http://doi.acm.org/10.1145/1557019.1557109},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ }
+
+sociodim.m: given the social dimensions, build a svm classifier and make predictions.
+
+evaluate.m: evaluate the performance given prediction scores and the true label
+In order to perform evaluation, you have to mex construct_indictor.c
+An evaluation script testevaluation.m is provided to check whether the evaluation script works.
+
+linearsvm.m: a wrapper code for liblinear
+To bulid the classifier, liblinear package is required. 
+http://www.csie.ntu.edu.tw/~cjlin/liblinear/
+Please add the exectable file for training (train.mex) to the matlab path.
+Current matlab code has been tested on liblinear 1.5. 
+If you use an older version, please uncomment the code between lines 38-44 in linearsvm.m.
+
+For convenience, the executable files (*.mexa64) for  linux64 are included in the package.
+---------------------------------------------------------
+---------------------------------------------------------
