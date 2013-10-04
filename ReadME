@@ -46,5 +46,3 @@ Current matlab code has been tested on liblinear 1.5.
 If you use an older version, please uncomment the code between lines 38-44 in linearsvm.m.
 
 For convenience, the executable files (*.mexa64) for  linux64 are included in the package.
----------------------------------------------------------
----------------------------------------------------------
