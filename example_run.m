@@ -18,10 +18,10 @@ n = size(network, 1);
 index = randperm(n);
 index_tr = index(1:ceil(0.1*n));  % 10% labeled nodes for training
 index_te = index(1+ceil(0.1*n):end);  % 90% unlabeled nodes for test
-
-% bulild the classifier and make predictions
-C = 20; % the C parameter in SVM Classifier
 labels = group(index_tr, :); % the labels of nodes for training
+
+% build the classifier and make predictions
+C = 20; % the C parameter in SVM Classifier
 [predscore] = SocioDim(eigenvectors, labels, index_tr, index_te, C);
 
 [perf, pred] = evaluate(predscore, group(index_te, :));
